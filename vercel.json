@@ -1,0 +1,6 @@
+{
+  "rewrites": [{ "source": "/STYLE.md", "destination": "/api/style" }],
+  "functions": {
+    "api/style.js": { "includeFiles": "STYLE.md" }
+  }
+}

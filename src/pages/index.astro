@@ -42,6 +42,19 @@ const agentsJson = JSON.stringify(AGENTS);
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
     />
+    <script
+      is:inline
+      src="https://cdn.databuddy.cc/databuddy.js"
+      data-client-id="6e266460-1002-499c-9908-64b513ac906e"
+      data-track-hash-changes="true"
+      data-track-attributes="true"
+      data-track-outgoing-links="true"
+      data-track-interactions="true"
+      data-track-web-vitals="true"
+      data-track-errors="true"
+      crossorigin="anonymous"
+      async
+    ></script>
   </head>
   <body>
     <main>
@@ -122,6 +135,10 @@ const agentsJson = JSON.stringify(AGENTS);
         await navigator.clipboard.writeText(cmdCode.textContent);
         cmd.classList.add("did-copy");
         setTimeout(() => cmd.classList.remove("did-copy"), 1600);
+        const agent = document.querySelector(".frame-tab.active")?.dataset.agent ?? "unknown";
+        try {
+          (window.databuddy?.track ?? window.db?.track)?.("copy_command", { agent });
+        } catch {}
       });
     </script>
 
