@@ -117,7 +117,8 @@ const agentsJson = JSON.stringify(AGENTS);
         const active = document.querySelector(".frame-tab.active");
         if (!active) return;
         pill.style.width = `${active.offsetWidth}px`;
-        pill.style.transform = `translateX(${active.offsetLeft}px)`;
+        pill.style.height = `${active.offsetHeight}px`;
+        pill.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
       }
       document.querySelectorAll(".frame-tab").forEach((tab) => {
         tab.addEventListener("click", () => {
@@ -153,9 +154,14 @@ const agentsJson = JSON.stringify(AGENTS);
         --paper: #fdfcf9;
       }
 
+      html {
+        overscroll-behavior: none;
+        background: var(--paper);
+      }
       body {
         font-family: "EB Garamond", Georgia, serif;
         color: var(--ink);
+        overscroll-behavior: none;
         min-height: 100svh;
         display: flex;
         flex-direction: column;
@@ -239,13 +245,13 @@ const agentsJson = JSON.stringify(AGENTS);
       .frame-tabs { position: relative; }
       .tab-pill {
         position: absolute;
-        top: 0.45rem;
+        top: 0;
         left: 0;
-        height: calc(100% - 0.9rem);
+        height: 0;
         width: 0;
         border-radius: 8px;
         background: rgba(51, 48, 42, 0.09);
-        transition: transform 0.28s cubic-bezier(0.3, 0.9, 0.3, 1), width 0.28s cubic-bezier(0.3, 0.9, 0.3, 1);
+        transition: transform 0.28s cubic-bezier(0.3, 0.9, 0.3, 1), width 0.28s cubic-bezier(0.3, 0.9, 0.3, 1), height 0.28s cubic-bezier(0.3, 0.9, 0.3, 1);
         pointer-events: none;
       }
       .frame-tab { position: relative; z-index: 1; }
@@ -308,9 +314,17 @@ const agentsJson = JSON.stringify(AGENTS);
         text-shadow: 0 1px 10px rgba(51, 48, 42, 0.35);
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 720px) {
         body { background-attachment: scroll; }
-        .frame-panel code { white-space: normal; word-break: break-all; }
+        .frame { width: 100%; }
+        .frame-tabs { flex-wrap: wrap; justify-content: center; overflow-x: visible; }
+        .frame-panel { padding: 0.85rem 0.9rem; }
+        .frame-panel code {
+          white-space: normal;
+          overflow-wrap: anywhere;
+          text-align: center;
+          line-height: 1.6;
+        }
       }
     </style>
   </body>
