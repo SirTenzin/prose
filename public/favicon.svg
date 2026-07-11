@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#fdfcf9"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="#33302a" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="33" y="47" font-family="EB Garamond, Georgia, 'Times New Roman', serif" font-size="46" text-anchor="middle" fill="#33302a">&#182;</text>
+</svg>
