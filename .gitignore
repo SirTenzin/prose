@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# vercel
+.vercel/
+
+# logs
+*.log
+
+# environment
+.env
+.env.*
+
+# os
+.DS_Store
