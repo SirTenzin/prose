@@ -181,13 +181,17 @@ const agentsJson = JSON.stringify(AGENTS);
         --paper: #fdfcf9;
       }
 
-      html, body {
+      html {
         height: 100%;
         overflow: hidden;
         overscroll-behavior: none;
         background: var(--paper);
       }
       body {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
         font-family: "EB Garamond", Georgia, serif;
         color: var(--ink);
         background:
